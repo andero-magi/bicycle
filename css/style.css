@@ -56,3 +56,10 @@ a:hover {
 .logo {
     margin-bottom: 20px;
 }
+
+.footer {
+}
+
+.hide {
+    display: none;
+}
