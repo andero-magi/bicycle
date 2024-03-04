@@ -14,6 +14,7 @@ const ARTICLES = {
 }
 
 const ARTICLE_ID = "id"
+const HIDE_CLASS = "hide"
 
 main()
 
@@ -43,15 +44,32 @@ function main() {
   if (pageTitle != null) {
     pageTitle.textContent = article
   }
+
+  setContentHidden(false)
+}
+
+function setContentHidden(hidden) {
+  const content = document.getElementById("page-content")
+  
+  if (content == null) {
+    return
+  }
+
+  if (hidden) {
+    if (content.classList.contains(HIDE_CLASS)) {
+      return
+    }
+
+    content.classList.add(HIDE_CLASS)
+  } else {
+    content.classList.remove(HIDE_CLASS)
+  }
 }
 
 function clearSite() {
   document.title = "Bicycle News | 404"
 
-  const content = document.getElementById("page-content")
-  if (content != null) {
-    content.classList.add("hide")
-  }
+  setContentHidden(true)
 
   const pageTitle = document.getElementById("page-title")
   if (pageTitle != null) {
